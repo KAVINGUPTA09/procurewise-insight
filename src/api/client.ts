@@ -102,7 +102,7 @@ export interface RequestOptions {
   method?: string;
   body?: unknown;
   auth?: boolean;
-  signal?: AbortSignal;
+  signal?: AbortSignal | undefined;
   headers?: Record<string, string>;
 }
 
