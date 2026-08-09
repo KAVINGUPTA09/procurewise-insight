@@ -65,7 +65,7 @@ export function normalizeAnalysis(raw: AnalysisResult | undefined | null): Norma
     analysisId: (src["analysis_id"] ?? src["id"]) as number | string | undefined,
     rfqFilename: (src["rfq_filename"] ?? src["filename"]) as string | undefined,
     createdAt: src["created_at"] as string | undefined,
-    vendorCount: (src["vendor_count"] as number | undefined) ?? vendors.length || undefined,
+    vendorCount: (src["vendor_count"] as number | undefined) ?? (vendors.length || undefined),
     requiresManualReview: Boolean(src["requires_manual_review"]),
     reviewReason: src["review_reason"] as string | undefined,
     dataComplete: src["data_complete"] as boolean | undefined,
