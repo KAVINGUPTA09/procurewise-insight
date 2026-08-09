@@ -133,7 +133,7 @@ export async function request<T>(path: string, options: RequestOptions = {}): Pr
     response = await fetch(`${API_BASE_URL}${path}`, {
       method,
       headers: finalHeaders,
-      body: payload,
+      body: payload ?? null,
       signal,
     });
   } catch {
