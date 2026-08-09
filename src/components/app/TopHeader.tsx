@@ -7,8 +7,8 @@ export function TopHeader({
   actions,
 }: {
   title: string;
-  description?: string;
-  actions?: React.ReactNode;
+  description?: string | undefined;
+  actions?: React.ReactNode | undefined;
 }) {
   return (
     <header className="sticky top-0 z-20 border-b bg-surface/85 backdrop-blur">

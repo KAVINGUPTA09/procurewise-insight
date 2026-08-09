@@ -14,8 +14,8 @@ export function AppShell({
   children,
 }: {
   title: string;
-  description?: string;
-  actions?: React.ReactNode;
+  description?: string | undefined;
+  actions?: React.ReactNode | undefined;
   children: React.ReactNode;
 }) {
   const { status } = useAuth();

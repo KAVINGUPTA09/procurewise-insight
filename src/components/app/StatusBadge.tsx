@@ -13,9 +13,9 @@ export function StatusBadge({
   children,
   className,
 }: {
-  tone?: DecisionTone;
+  tone?: DecisionTone | undefined;
   children: React.ReactNode;
-  className?: string;
+  className?: string | undefined;
 }) {
   return (
     <span
