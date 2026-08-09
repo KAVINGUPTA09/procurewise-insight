@@ -134,7 +134,7 @@ export async function request<T>(path: string, options: RequestOptions = {}): Pr
       method,
       headers: finalHeaders,
       body: payload ?? null,
-      signal,
+      signal: signal ?? null,
     });
   } catch {
     throw new ApiError(
