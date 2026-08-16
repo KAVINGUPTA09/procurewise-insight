@@ -11,11 +11,14 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AccountRouteImport } from './routes/account'
+import { Route as ArchitectureRouteImport } from './routes/architecture'
+import { Route as BuilderRouteImport } from './routes/builder'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as HistoryRouteImport } from './routes/history'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as NewAnalysisRouteImport } from './routes/new-analysis'
 import { Route as ReportsRouteImport } from './routes/reports'
+import { Route as SampleAnalysisRouteImport } from './routes/sample-analysis'
 import { Route as SignupRouteImport } from './routes/signup'
 import { Route as AnalysisAnalysisIdRouteImport } from './routes/analysis.$analysisId'
 
@@ -27,6 +30,16 @@ const IndexRoute = IndexRouteImport.update({
 const AccountRoute = AccountRouteImport.update({
   id: '/account',
   path: '/account',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ArchitectureRoute = ArchitectureRouteImport.update({
+  id: '/architecture',
+  path: '/architecture',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BuilderRoute = BuilderRouteImport.update({
+  id: '/builder',
+  path: '/builder',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DashboardRoute = DashboardRouteImport.update({
@@ -54,6 +67,11 @@ const ReportsRoute = ReportsRouteImport.update({
   path: '/reports',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SampleAnalysisRoute = SampleAnalysisRouteImport.update({
+  id: '/sample-analysis',
+  path: '/sample-analysis',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SignupRoute = SignupRouteImport.update({
   id: '/signup',
   path: '/signup',
@@ -68,22 +86,28 @@ const AnalysisAnalysisIdRoute = AnalysisAnalysisIdRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/account': typeof AccountRoute
+  '/architecture': typeof ArchitectureRoute
+  '/builder': typeof BuilderRoute
   '/dashboard': typeof DashboardRoute
   '/history': typeof HistoryRoute
   '/login': typeof LoginRoute
   '/new-analysis': typeof NewAnalysisRoute
   '/reports': typeof ReportsRoute
+  '/sample-analysis': typeof SampleAnalysisRoute
   '/signup': typeof SignupRoute
   '/analysis/$analysisId': typeof AnalysisAnalysisIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/account': typeof AccountRoute
+  '/architecture': typeof ArchitectureRoute
+  '/builder': typeof BuilderRoute
   '/dashboard': typeof DashboardRoute
   '/history': typeof HistoryRoute
   '/login': typeof LoginRoute
   '/new-analysis': typeof NewAnalysisRoute
   '/reports': typeof ReportsRoute
+  '/sample-analysis': typeof SampleAnalysisRoute
   '/signup': typeof SignupRoute
   '/analysis/$analysisId': typeof AnalysisAnalysisIdRoute
 }
@@ -91,11 +115,14 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/account': typeof AccountRoute
+  '/architecture': typeof ArchitectureRoute
+  '/builder': typeof BuilderRoute
   '/dashboard': typeof DashboardRoute
   '/history': typeof HistoryRoute
   '/login': typeof LoginRoute
   '/new-analysis': typeof NewAnalysisRoute
   '/reports': typeof ReportsRoute
+  '/sample-analysis': typeof SampleAnalysisRoute
   '/signup': typeof SignupRoute
   '/analysis/$analysisId': typeof AnalysisAnalysisIdRoute
 }
@@ -104,33 +131,42 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/account'
+    | '/architecture'
+    | '/builder'
     | '/dashboard'
     | '/history'
     | '/login'
     | '/new-analysis'
     | '/reports'
+    | '/sample-analysis'
     | '/signup'
     | '/analysis/$analysisId'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/account'
+    | '/architecture'
+    | '/builder'
     | '/dashboard'
     | '/history'
     | '/login'
     | '/new-analysis'
     | '/reports'
+    | '/sample-analysis'
     | '/signup'
     | '/analysis/$analysisId'
   id:
     | '__root__'
     | '/'
     | '/account'
+    | '/architecture'
+    | '/builder'
     | '/dashboard'
     | '/history'
     | '/login'
     | '/new-analysis'
     | '/reports'
+    | '/sample-analysis'
     | '/signup'
     | '/analysis/$analysisId'
   fileRoutesById: FileRoutesById
@@ -138,11 +174,14 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AccountRoute: typeof AccountRoute
+  ArchitectureRoute: typeof ArchitectureRoute
+  BuilderRoute: typeof BuilderRoute
   DashboardRoute: typeof DashboardRoute
   HistoryRoute: typeof HistoryRoute
   LoginRoute: typeof LoginRoute
   NewAnalysisRoute: typeof NewAnalysisRoute
   ReportsRoute: typeof ReportsRoute
+  SampleAnalysisRoute: typeof SampleAnalysisRoute
   SignupRoute: typeof SignupRoute
   AnalysisAnalysisIdRoute: typeof AnalysisAnalysisIdRoute
 }
@@ -161,6 +200,20 @@ declare module '@tanstack/react-router' {
       path: '/account'
       fullPath: '/account'
       preLoaderRoute: typeof AccountRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/architecture': {
+      id: '/architecture'
+      path: '/architecture'
+      fullPath: '/architecture'
+      preLoaderRoute: typeof ArchitectureRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/builder': {
+      id: '/builder'
+      path: '/builder'
+      fullPath: '/builder'
+      preLoaderRoute: typeof BuilderRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/dashboard': {
@@ -198,6 +251,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ReportsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/sample-analysis': {
+      id: '/sample-analysis'
+      path: '/sample-analysis'
+      fullPath: '/sample-analysis'
+      preLoaderRoute: typeof SampleAnalysisRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/signup': {
       id: '/signup'
       path: '/signup'
@@ -218,14 +278,27 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AccountRoute: AccountRoute,
+  ArchitectureRoute: ArchitectureRoute,
+  BuilderRoute: BuilderRoute,
   DashboardRoute: DashboardRoute,
   HistoryRoute: HistoryRoute,
   LoginRoute: LoginRoute,
   NewAnalysisRoute: NewAnalysisRoute,
   ReportsRoute: ReportsRoute,
+  SampleAnalysisRoute: SampleAnalysisRoute,
   SignupRoute: SignupRoute,
   AnalysisAnalysisIdRoute: AnalysisAnalysisIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
