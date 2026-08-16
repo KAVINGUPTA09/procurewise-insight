@@ -11,22 +11,9 @@ COPY . .
 ARG VITE_API_BASE_URL
 ENV VITE_API_BASE_URL=$VITE_API_BASE_URL
 
-# Force Nitro to generate Node-compatible server output
+ARG VITE_GOOGLE_CLIENT_ID
+ENV VITE_GOOGLE_CLIENT_ID=$VITE_GOOGLE_CLIENT_ID
+
 ENV NITRO_PRESET=node
 
 RUN npm run build
-
-
-FROM node:22-alpine
-
-WORKDIR /app
-
-ENV NODE_ENV=production
-ENV HOST=0.0.0.0
-ENV PORT=10000
-
-COPY --from=build /app/.output ./.output
-
-EXPOSE 10000
-
-CMD ["node", ".output/server/index.mjs"]
