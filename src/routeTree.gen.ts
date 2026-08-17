@@ -11,8 +11,12 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AccountRouteImport } from './routes/account'
+import { Route as AdminDashboardRouteImport } from './routes/admin-dashboard'
+import { Route as AnalyticsRouteImport } from './routes/analytics'
+import { Route as ApproverDashboardRouteImport } from './routes/approver-dashboard'
 import { Route as ArchitectureRouteImport } from './routes/architecture'
 import { Route as BuilderRouteImport } from './routes/builder'
+import { Route as ContractsRouteImport } from './routes/contracts'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as HistoryRouteImport } from './routes/history'
 import { Route as LoginRouteImport } from './routes/login'
@@ -21,6 +25,7 @@ import { Route as ReportsRouteImport } from './routes/reports'
 import { Route as SampleAnalysisRouteImport } from './routes/sample-analysis'
 import { Route as SignupRouteImport } from './routes/signup'
 import { Route as AnalysisAnalysisIdRouteImport } from './routes/analysis.$analysisId'
+import { Route as IntelligenceAnalysisIdRouteImport } from './routes/intelligence.$analysisId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -32,6 +37,21 @@ const AccountRoute = AccountRouteImport.update({
   path: '/account',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminDashboardRoute = AdminDashboardRouteImport.update({
+  id: '/admin-dashboard',
+  path: '/admin-dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AnalyticsRoute = AnalyticsRouteImport.update({
+  id: '/analytics',
+  path: '/analytics',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApproverDashboardRoute = ApproverDashboardRouteImport.update({
+  id: '/approver-dashboard',
+  path: '/approver-dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ArchitectureRoute = ArchitectureRouteImport.update({
   id: '/architecture',
   path: '/architecture',
@@ -40,6 +60,11 @@ const ArchitectureRoute = ArchitectureRouteImport.update({
 const BuilderRoute = BuilderRouteImport.update({
   id: '/builder',
   path: '/builder',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContractsRoute = ContractsRouteImport.update({
+  id: '/contracts',
+  path: '/contracts',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DashboardRoute = DashboardRouteImport.update({
@@ -82,12 +107,21 @@ const AnalysisAnalysisIdRoute = AnalysisAnalysisIdRouteImport.update({
   path: '/analysis/$analysisId',
   getParentRoute: () => rootRouteImport,
 } as any)
+const IntelligenceAnalysisIdRoute = IntelligenceAnalysisIdRouteImport.update({
+  id: '/intelligence/$analysisId',
+  path: '/intelligence/$analysisId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/account': typeof AccountRoute
+  '/admin-dashboard': typeof AdminDashboardRoute
+  '/analytics': typeof AnalyticsRoute
+  '/approver-dashboard': typeof ApproverDashboardRoute
   '/architecture': typeof ArchitectureRoute
   '/builder': typeof BuilderRoute
+  '/contracts': typeof ContractsRoute
   '/dashboard': typeof DashboardRoute
   '/history': typeof HistoryRoute
   '/login': typeof LoginRoute
@@ -96,12 +130,17 @@ export interface FileRoutesByFullPath {
   '/sample-analysis': typeof SampleAnalysisRoute
   '/signup': typeof SignupRoute
   '/analysis/$analysisId': typeof AnalysisAnalysisIdRoute
+  '/intelligence/$analysisId': typeof IntelligenceAnalysisIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/account': typeof AccountRoute
+  '/admin-dashboard': typeof AdminDashboardRoute
+  '/analytics': typeof AnalyticsRoute
+  '/approver-dashboard': typeof ApproverDashboardRoute
   '/architecture': typeof ArchitectureRoute
   '/builder': typeof BuilderRoute
+  '/contracts': typeof ContractsRoute
   '/dashboard': typeof DashboardRoute
   '/history': typeof HistoryRoute
   '/login': typeof LoginRoute
@@ -110,13 +149,18 @@ export interface FileRoutesByTo {
   '/sample-analysis': typeof SampleAnalysisRoute
   '/signup': typeof SignupRoute
   '/analysis/$analysisId': typeof AnalysisAnalysisIdRoute
+  '/intelligence/$analysisId': typeof IntelligenceAnalysisIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/account': typeof AccountRoute
+  '/admin-dashboard': typeof AdminDashboardRoute
+  '/analytics': typeof AnalyticsRoute
+  '/approver-dashboard': typeof ApproverDashboardRoute
   '/architecture': typeof ArchitectureRoute
   '/builder': typeof BuilderRoute
+  '/contracts': typeof ContractsRoute
   '/dashboard': typeof DashboardRoute
   '/history': typeof HistoryRoute
   '/login': typeof LoginRoute
@@ -125,14 +169,19 @@ export interface FileRoutesById {
   '/sample-analysis': typeof SampleAnalysisRoute
   '/signup': typeof SignupRoute
   '/analysis/$analysisId': typeof AnalysisAnalysisIdRoute
+  '/intelligence/$analysisId': typeof IntelligenceAnalysisIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/account'
+    | '/admin-dashboard'
+    | '/analytics'
+    | '/approver-dashboard'
     | '/architecture'
     | '/builder'
+    | '/contracts'
     | '/dashboard'
     | '/history'
     | '/login'
@@ -141,12 +190,17 @@ export interface FileRouteTypes {
     | '/sample-analysis'
     | '/signup'
     | '/analysis/$analysisId'
+    | '/intelligence/$analysisId'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/account'
+    | '/admin-dashboard'
+    | '/analytics'
+    | '/approver-dashboard'
     | '/architecture'
     | '/builder'
+    | '/contracts'
     | '/dashboard'
     | '/history'
     | '/login'
@@ -155,12 +209,17 @@ export interface FileRouteTypes {
     | '/sample-analysis'
     | '/signup'
     | '/analysis/$analysisId'
+    | '/intelligence/$analysisId'
   id:
     | '__root__'
     | '/'
     | '/account'
+    | '/admin-dashboard'
+    | '/analytics'
+    | '/approver-dashboard'
     | '/architecture'
     | '/builder'
+    | '/contracts'
     | '/dashboard'
     | '/history'
     | '/login'
@@ -169,13 +228,18 @@ export interface FileRouteTypes {
     | '/sample-analysis'
     | '/signup'
     | '/analysis/$analysisId'
+    | '/intelligence/$analysisId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AccountRoute: typeof AccountRoute
+  AdminDashboardRoute: typeof AdminDashboardRoute
+  AnalyticsRoute: typeof AnalyticsRoute
+  ApproverDashboardRoute: typeof ApproverDashboardRoute
   ArchitectureRoute: typeof ArchitectureRoute
   BuilderRoute: typeof BuilderRoute
+  ContractsRoute: typeof ContractsRoute
   DashboardRoute: typeof DashboardRoute
   HistoryRoute: typeof HistoryRoute
   LoginRoute: typeof LoginRoute
@@ -184,6 +248,7 @@ export interface RootRouteChildren {
   SampleAnalysisRoute: typeof SampleAnalysisRoute
   SignupRoute: typeof SignupRoute
   AnalysisAnalysisIdRoute: typeof AnalysisAnalysisIdRoute
+  IntelligenceAnalysisIdRoute: typeof IntelligenceAnalysisIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -202,6 +267,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AccountRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin-dashboard': {
+      id: '/admin-dashboard'
+      path: '/admin-dashboard'
+      fullPath: '/admin-dashboard'
+      preLoaderRoute: typeof AdminDashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/analytics': {
+      id: '/analytics'
+      path: '/analytics'
+      fullPath: '/analytics'
+      preLoaderRoute: typeof AnalyticsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/approver-dashboard': {
+      id: '/approver-dashboard'
+      path: '/approver-dashboard'
+      fullPath: '/approver-dashboard'
+      preLoaderRoute: typeof ApproverDashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/architecture': {
       id: '/architecture'
       path: '/architecture'
@@ -214,6 +300,13 @@ declare module '@tanstack/react-router' {
       path: '/builder'
       fullPath: '/builder'
       preLoaderRoute: typeof BuilderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contracts': {
+      id: '/contracts'
+      path: '/contracts'
+      fullPath: '/contracts'
+      preLoaderRoute: typeof ContractsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/dashboard': {
@@ -272,14 +365,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AnalysisAnalysisIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/intelligence/$analysisId': {
+      id: '/intelligence/$analysisId'
+      path: '/intelligence/$analysisId'
+      fullPath: '/intelligence/$analysisId'
+      preLoaderRoute: typeof IntelligenceAnalysisIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AccountRoute: AccountRoute,
+  AdminDashboardRoute: AdminDashboardRoute,
+  AnalyticsRoute: AnalyticsRoute,
+  ApproverDashboardRoute: ApproverDashboardRoute,
   ArchitectureRoute: ArchitectureRoute,
   BuilderRoute: BuilderRoute,
+  ContractsRoute: ContractsRoute,
   DashboardRoute: DashboardRoute,
   HistoryRoute: HistoryRoute,
   LoginRoute: LoginRoute,
@@ -288,6 +392,7 @@ const rootRouteChildren: RootRouteChildren = {
   SampleAnalysisRoute: SampleAnalysisRoute,
   SignupRoute: SignupRoute,
   AnalysisAnalysisIdRoute: AnalysisAnalysisIdRoute,
+  IntelligenceAnalysisIdRoute: IntelligenceAnalysisIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
