@@ -745,6 +745,8 @@ ProcureMind AI is an **AI-assisted decision-support platform**.
 
 AI recommendations are intended to assist procurement professionals and should not replace organisational procurement policies, due diligence, contractual review or authorised human judgement.
 
+FRONTEND LINK-https://procurewise-insight.onrender.com/
+
 ---
 
 <p align="center">
